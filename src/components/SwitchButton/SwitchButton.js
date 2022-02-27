@@ -9,6 +9,7 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
+
 import { useLocales } from "../../providers/LocalesProvider";
 
 const SwitchButton = () => {
@@ -20,16 +21,16 @@ const SwitchButton = () => {
         sx={{ display: "flex", justifyContent: "flex-end", gap: "35px" }}
       >
         <FormControl>
-          <FormLabel color="primary">{trans.translation.lang}</FormLabel>
+          <FormLabel color="primary">{trans.lang}</FormLabel>
           <RadioGroup row onChange={toggleLang}>
             <FormControlLabel
-              checked={trans.translation.langs}
+              checked={trans.langs}
               value="en"
               control={<Radio />}
               label="EN"
             />
             <FormControlLabel
-              checked={trans.translation.langs}
+              checked={trans.langs}
               value="RU"
               control={<Radio />}
               label="RU"

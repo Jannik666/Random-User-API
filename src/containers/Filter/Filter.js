@@ -13,7 +13,9 @@ import {
 } from "@mui/material";
 import FemaleIcon from "@mui/icons-material/Female";
 import MaleIcon from "@mui/icons-material/Male";
+
 import { useLocales } from "../../providers/LocalesProvider";
+import { nat } from "./constans";
 
 const Filter = ({
   filterValues,
@@ -23,25 +25,6 @@ const Filter = ({
   onChangeNat,
 }) => {
   const { trans } = useLocales();
-  const national = [
-    "AU",
-    "BR",
-    "CA",
-    "CH",
-    "DE",
-    "DK",
-    "ES",
-    "FI",
-    "FR",
-    "GB",
-    "IE",
-    "IR",
-    "NO",
-    "NL",
-    "NZ",
-    "TR",
-    "US",
-  ];
 
   const handleChangeGender = (e) => {
     const value = e.currentTarget.value;
@@ -66,10 +49,8 @@ const Filter = ({
     <Stack direction="row" justifyContent="space-between" p={2}>
       <div>
         <Typography>
-          {trans.translation.gender} :
-          {filterValues.gender === "male"
-            ? trans.translation.male
-            : trans.translation.female}
+          {trans.gender} :
+          {filterValues.gender === "male" ? trans.male : trans.female}
         </Typography>
         <ToggleButtonGroup value={filterValues.gender}>
           <ToggleButton
@@ -90,7 +71,7 @@ const Filter = ({
       </div>
       <Stack>
         <Typography>
-          {trans.translation.page}: {filterValues.page}
+          {trans.page}: {filterValues.page}
         </Typography>
         <Pagination
           count={50}
@@ -99,7 +80,7 @@ const Filter = ({
         />
       </Stack>
       <FormControl sx={{ width: 0.2 }}>
-        <InputLabel id="results">{trans.translation.results}</InputLabel>
+        <InputLabel id="results">{trans.results}</InputLabel>
         <Select
           id="results"
           label="Results"
@@ -115,7 +96,7 @@ const Filter = ({
         </Select>
       </FormControl>
       <FormControl sx={{ width: 0.2 }}>
-        <InputLabel id="nat">{trans.translation.nationality}</InputLabel>
+        <InputLabel id="nat">{trans.nat}</InputLabel>
         <Select
           id="nat"
           label="Nat"
@@ -123,7 +104,7 @@ const Filter = ({
           value={filterValues.nat}
           onChange={handleChangeNat}
         >
-          {national.map((item) => (
+          {nat.map((item) => (
             <MenuItem value={item} key={item}>
               {item}
             </MenuItem>

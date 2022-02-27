@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Card, CardMedia, DialogContent, Typography } from "@mui/material";
+
 import { useLocales } from "../../providers/LocalesProvider";
 
 const UserForm = ({ name, phone, picture, email, location }) => {
@@ -14,13 +15,13 @@ const UserForm = ({ name, phone, picture, email, location }) => {
           {name.title} {name.first} {name.last}
         </Typography>
         <Typography>
-          {trans.translation.phone} : {phone}
+          {trans.phone} : {phone}
         </Typography>
         <Typography>
-          {trans.translation.email} : {email}
+          {trans.email} : {email}
         </Typography>
         <Typography>
-          {trans.translation.location} : {location.state} {location.city}
+          {trans.location} : {location.state} {location.city}
         </Typography>
       </Card>
     </DialogContent>

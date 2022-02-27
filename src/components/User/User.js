@@ -9,6 +9,7 @@ import {
   Dialog,
   Divider,
 } from "@mui/material";
+
 import UserForm from "../UserForm";
 
 const User = ({ user }) => {
