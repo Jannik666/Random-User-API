@@ -41,7 +41,13 @@ const ThemeProvider = ({ children }) => {
 
   return (
     <Provider theme={theme === "light" ? lightTheme : darkTheme}>
-      <GlobalStyles />
+      <GlobalStyles
+        styles={{
+          body: {
+            backgroundColor: theme === "light" ? "#fff" : "#000",
+          },
+        }}
+      />
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         {children}
       </ThemeContext.Provider>
