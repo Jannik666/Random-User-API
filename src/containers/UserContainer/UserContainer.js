@@ -8,10 +8,10 @@ import SwitchButton from "../../components/SwitchButton";
 
 const UserContainer = () => {
   const [filterValues, setFilterValues] = useState({
-    gender: "male",
+    gender: localStorage.getItem("gender") || "male",
     page: 1,
-    results: 8,
-    nat: "AU",
+    results: localStorage.getItem("results") || 8,
+    nat: localStorage.getItem("nat") || "AU",
   });
 
   const handleChangeGender = (gender) => {

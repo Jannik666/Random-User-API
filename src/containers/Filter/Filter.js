@@ -15,7 +15,7 @@ import FemaleIcon from "@mui/icons-material/Female";
 import MaleIcon from "@mui/icons-material/Male";
 
 import { useLocales } from "../../providers/LocalesProvider";
-import { nat } from "./constans";
+import { nat, results } from "./constans";
 
 const Filter = ({
   filterValues,
@@ -29,6 +29,8 @@ const Filter = ({
   const handleChangeGender = (e) => {
     const value = e.currentTarget.value;
     onChangeGender(value);
+
+    localStorage.setItem("genger", value);
   };
 
   const handleChangePage = (e, value) => {
@@ -38,11 +40,15 @@ const Filter = ({
   const handleChangeResults = (e) => {
     const value = e.target.value;
     onChangeResults(value);
+
+    localStorage.setItem("results", value);
   };
 
   const handleChangeNat = (e) => {
     const value = e.target.value;
     onChangeNat(value);
+
+    localStorage.setItem("nat", value);
   };
 
   return (
@@ -88,11 +94,11 @@ const Filter = ({
           value={filterValues.results}
           onChange={handleChangeResults}
         >
-          <MenuItem value={4}>4</MenuItem>
-          <MenuItem value={8}>8</MenuItem>
-          <MenuItem value={12}>12</MenuItem>
-          <MenuItem value={16}>16</MenuItem>
-          <MenuItem value={20}>20</MenuItem>
+          {results.map((item) => (
+            <MenuItem value={item} key={item}>
+              {item}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
       <FormControl sx={{ width: 0.2 }}>
