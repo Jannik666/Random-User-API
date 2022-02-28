@@ -96,7 +96,7 @@ const Filter = ({
         </Select>
       </FormControl>
       <FormControl sx={{ width: 0.2 }}>
-        <InputLabel id="nat">{trans.nat}</InputLabel>
+        <InputLabel id="nat">{trans.nationality}</InputLabel>
         <Select
           id="nat"
           label="Nat"

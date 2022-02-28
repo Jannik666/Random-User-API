@@ -8,12 +8,16 @@ import {
   FormControlLabel,
   Radio,
   RadioGroup,
+  Typography,
 } from "@mui/material";
 
 import { useLocales } from "../../providers/LocalesProvider";
+import { useTheme } from "../../providers/ThemeProvider";
+import { MaterialUISwitch } from "./MaterialUISwitch";
 
 const SwitchButton = () => {
   const { trans, toggleLang } = useLocales();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Paper elevation={0}>
@@ -31,11 +35,24 @@ const SwitchButton = () => {
             />
             <FormControlLabel
               checked={trans.langs}
-              value="RU"
+              value="ru"
               control={<Radio />}
               label="RU"
             />
           </RadioGroup>
+        </FormControl>
+        <FormControl>
+          <FormLabel color="primary">{trans.changeTheme}</FormLabel>
+          <FormControlLabel
+            checked={theme === "dark"}
+            onChange={toggleTheme}
+            control={<MaterialUISwitch sx={{ m: 1 }} />}
+            label={
+              <Typography>
+                {theme === "ligth" ? trans.ligthTheme : trans.darkTheme}
+              </Typography>
+            }
+          />
         </FormControl>
       </Container>
     </Paper>
@@ -43,24 +60,3 @@ const SwitchButton = () => {
 };
 
 export default SwitchButton;
-
-// export default function LocalSwitch() {
-// 	const { i18n } = useTranslation();
-// 	const handleChangeLang = () => {
-// 		if (i18next.language === 'ru') {
-// 			i18n.changeLanguage('en');
-// 		} else {
-// 			i18n.changeLanguage('ru');
-// 		}
-// 	};
-// 	return (
-// 		<Stack direction='row' spacing={1} alignItems='center'>
-// 			<Typography>RU</Typography>
-// 			<AntSwitch
-// 				onChange={handleChangeLang}
-// 				defaultChecked
-// 				inputProps={{ 'aria-label': 'ant design' }}
-// 			/>
-// 			<Typography>EN</Typography>
-// 		</Stack>
-// 	);

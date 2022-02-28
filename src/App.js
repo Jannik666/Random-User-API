@@ -2,12 +2,15 @@ import React from "react";
 
 import UserContainer from "./containers/UserContainer";
 import LocalesProvider from "./providers/LocalesProvider";
+import ThemeProvider from "./providers/ThemeProvider";
 
 const App = () => {
   return (
-    <LocalesProvider>
-      <UserContainer />
-    </LocalesProvider>
+    <ThemeProvider>
+      <LocalesProvider>
+        <UserContainer />
+      </LocalesProvider>
+    </ThemeProvider>
   );
 };
 

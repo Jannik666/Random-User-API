@@ -1,4 +1,4 @@
-const ru = {
+const en = {
   gender: "Gender",
   male: "Male",
   female: "Female",
@@ -9,9 +9,12 @@ const ru = {
   email: "E-mail",
   location: "Location",
   lang: "Change language",
+  changeTheme: "Change Theme",
+  darkTheme: "Dark Theme",
+  lightTheme: "Light Theme",
 };
 
-const en = {
+const ru = {
   gender: "Пол",
   male: "Мужчина",
   female: "Женщина",
@@ -22,6 +25,9 @@ const en = {
   email: "Электронная почта",
   location: "Адрес",
   lang: "Изменить язык",
+  changeTheme: "Изменить тему",
+  darkTheme: "Темная Тема",
+  lightTheme: "Светлая Тема",
 };
 
 export const langs = { ru, en };
