@@ -10,9 +10,10 @@ import {
   Divider,
 } from "@mui/material";
 
+import { UserProps } from "./User.types";
 import UserForm from "../UserForm";
 
-const User = ({ user }) => {
+const Users: React.FC<UserProps> = ({ user }) => {
   const { picture, name, phone } = user;
   const { title, first, last } = name;
   const [open, toggle] = useReducer((prev) => !prev, false);
@@ -44,4 +45,4 @@ const User = ({ user }) => {
   );
 };
 
-export default User;
+export default Users;

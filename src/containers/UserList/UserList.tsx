@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 import { CircularProgress, List } from "@mui/material";
 
 import { getUsers } from "../../api/User";
-import User from "../../components/User";
+import Users from "../../components/User";
+import { UserListProps } from "./UserList.types";
+import { User } from "../../api/User.types";
 
-const UserList = ({ filterValues }) => {
+const UserList: React.FC<UserListProps> = ({ filterValues }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     setLoading(true);
@@ -24,7 +26,7 @@ const UserList = ({ filterValues }) => {
       {loading && <CircularProgress size={70} />}
       {error && "Error..."}
       {users.map((user) => (
-        <User key={user.email} user={user} />
+        <Users key={user.login.uuid} user={user} />
       ))}
     </List>
   );

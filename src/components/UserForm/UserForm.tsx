@@ -3,8 +3,15 @@ import React from "react";
 import { Card, CardMedia, DialogContent, Typography } from "@mui/material";
 
 import { useLocales } from "../../providers/LocalesProvider";
+import { UserFormProps } from "./UserForm.types";
 
-const UserForm = ({ name, phone, picture, email, location }) => {
+const UserForm: React.FC<UserFormProps> = ({
+  name,
+  phone,
+  picture,
+  email,
+  location,
+}) => {
   const { trans } = useLocales();
 
   return (

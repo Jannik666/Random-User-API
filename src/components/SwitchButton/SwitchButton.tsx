@@ -15,7 +15,7 @@ import { useLocales } from "../../providers/LocalesProvider";
 import { useTheme } from "../../providers/ThemeProvider";
 import { MaterialUISwitch } from "./MaterialUISwitch";
 
-const SwitchButton = () => {
+const SwitchButton: React.FC = () => {
   const { trans, toggleLang } = useLocales();
   const { theme, toggleTheme } = useTheme();
 
@@ -28,13 +28,13 @@ const SwitchButton = () => {
           <FormLabel color="primary">{trans.lang}</FormLabel>
           <RadioGroup row onChange={toggleLang}>
             <FormControlLabel
-              checked={trans.langs}
+              checked={true}
               value="en"
               control={<Radio />}
               label="EN"
             />
             <FormControlLabel
-              checked={trans.langs}
+              checked={false}
               value="ru"
               control={<Radio />}
               label="RU"
@@ -49,7 +49,7 @@ const SwitchButton = () => {
             control={<MaterialUISwitch sx={{ m: 1 }} />}
             label={
               <Typography>
-                {theme === "ligth" ? trans.ligthTheme : trans.darkTheme}
+                {theme === "ligth" ? trans.lightTheme : trans.darkTheme}
               </Typography>
             }
           />

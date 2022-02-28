@@ -4,7 +4,7 @@ import UserContainer from "./containers/UserContainer";
 import LocalesProvider from "./providers/LocalesProvider";
 import ThemeProvider from "./providers/ThemeProvider";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <ThemeProvider>
       <LocalesProvider>

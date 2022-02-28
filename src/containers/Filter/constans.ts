@@ -1,4 +1,4 @@
-export const nat = [
+export const nat: string[] = [
   "AU",
   "BR",
   "CA",
@@ -18,4 +18,4 @@ export const nat = [
   "US",
 ];
 
-export const results = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+export const results: number[] = [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];

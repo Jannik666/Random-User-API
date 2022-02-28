@@ -1,4 +1,4 @@
-const en = {
+export const en = {
   gender: "Gender",
   male: "Male",
   female: "Female",
@@ -30,4 +30,4 @@ const ru = {
   lightTheme: "Светлая Тема",
 };
 
-export const langs = { ru, en };
+export const langs: string | string = [ru, en];

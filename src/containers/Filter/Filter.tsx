@@ -6,6 +6,7 @@ import {
   MenuItem,
   Pagination,
   Select,
+  SelectChangeEvent,
   Stack,
   ToggleButton,
   ToggleButtonGroup,
@@ -16,8 +17,9 @@ import MaleIcon from "@mui/icons-material/Male";
 
 import { useLocales } from "../../providers/LocalesProvider";
 import { nat, results } from "./constans";
+import { FilterProps } from "./Filter.types";
 
-const Filter = ({
+const Filter: React.FC<FilterProps> = ({
   filterValues,
   onChangeGender,
   onChangePage,
@@ -26,25 +28,23 @@ const Filter = ({
 }) => {
   const { trans } = useLocales();
 
-  const handleChangeGender = (e) => {
+  const handleChangeGender = (e: React.MouseEvent<HTMLButtonElement>) => {
     const value = e.currentTarget.value;
     onChangeGender(value);
 
     localStorage.setItem("genger", value);
   };
 
-  const handleChangePage = (e, value) => {
+  const handleChangePage = (e: React.ChangeEvent<unknown>, value: number) => {
     onChangePage(value);
   };
 
-  const handleChangeResults = (e) => {
+  const handleChangeResults = (e: SelectChangeEvent<number>) => {
     const value = e.target.value;
-    onChangeResults(value);
-
-    localStorage.setItem("results", value);
+    onChangeResults(Number(value));
   };
 
-  const handleChangeNat = (e) => {
+  const handleChangeNat = (e: SelectChangeEvent) => {
     const value = e.target.value;
     onChangeNat(value);
 
@@ -59,18 +59,10 @@ const Filter = ({
           {filterValues.gender === "male" ? trans.male : trans.female}
         </Typography>
         <ToggleButtonGroup value={filterValues.gender}>
-          <ToggleButton
-            value="male"
-            variant="contained"
-            onClick={handleChangeGender}
-          >
+          <ToggleButton value="male" onClick={handleChangeGender}>
             <MaleIcon />
           </ToggleButton>
-          <ToggleButton
-            value="female"
-            variant="contained"
-            onClick={handleChangeGender}
-          >
+          <ToggleButton value="female" onClick={handleChangeGender}>
             <FemaleIcon />
           </ToggleButton>
         </ToggleButtonGroup>

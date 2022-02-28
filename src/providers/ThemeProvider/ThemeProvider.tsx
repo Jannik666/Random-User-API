@@ -12,24 +12,28 @@ import {
   createTheme,
 } from "@mui/material";
 
-export const lightTheme = createTheme({
+import { ThemeType } from "./ThemeProvider.types";
+
+const lightTheme = createTheme({
   palette: {
     mode: "light",
   },
 });
 
-export const darkTheme = createTheme({
+const darkTheme = createTheme({
   palette: {
     mode: "dark",
   },
 });
 
-const ThemeContext = createContext({});
+const ThemeContext = createContext<ThemeType>({});
 
 export const useTheme = () => useContext(ThemeContext);
 
-const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+const ThemeProvider: React.FC = ({ children }) => {
+  const [theme, setTheme] = useState<string>(
+    localStorage.getItem("theme") || "dark"
+  );
 
   const toggleTheme = useCallback(() => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
@@ -41,7 +45,13 @@ const ThemeProvider = ({ children }) => {
 
   return (
     <Provider theme={theme === "light" ? lightTheme : darkTheme}>
-      <GlobalStyles />
+      <GlobalStyles
+        styles={{
+          body: {
+            backgroundColor: theme === "light" ? "#fff" : "#000",
+          },
+        }}
+      />
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         {children}
       </ThemeContext.Provider>

@@ -1,13 +1,14 @@
 import React, { createContext, useState, useCallback, useContext } from "react";
 
 import { langs } from "./translations";
+import { LocalesType } from "./LocalesProvider.types";
 
-const LocalesContext = createContext({});
+const LocalesContext = createContext<LocalesType>({});
 
 export const useLocales = () => useContext(LocalesContext);
 
-const LocalesProvider = ({ children }) => {
-  const [lang, setLang] = useState("en");
+const LocalesProvider: React.FC = ({ children }) => {
+  const [lang, setLang] = useState<string>("en");
 
   const toggleLang = useCallback(() => {
     setLang((prev) => (prev === "en" ? "ru" : "en"));

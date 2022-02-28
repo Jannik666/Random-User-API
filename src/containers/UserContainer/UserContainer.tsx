@@ -6,27 +6,27 @@ import Filter from "../Filter";
 import UserList from "../UserList";
 import SwitchButton from "../../components/SwitchButton";
 
-const UserContainer = () => {
+const UserContainer: React.FC = () => {
   const [filterValues, setFilterValues] = useState({
     gender: localStorage.getItem("gender") || "male",
     page: 1,
-    results: localStorage.getItem("results") || 8,
+    results: 8,
     nat: localStorage.getItem("nat") || "AU",
   });
 
-  const handleChangeGender = (gender) => {
+  const handleChangeGender = (gender: string) => {
     setFilterValues({ ...filterValues, gender });
   };
 
-  const handleChangePage = (page) => {
+  const handleChangePage = (page: number) => {
     setFilterValues({ ...filterValues, page });
   };
 
-  const handleChangeResults = (results) => {
+  const handleChangeResults = (results: number) => {
     setFilterValues({ ...filterValues, results });
   };
 
-  const handleChangeNat = (nat) => {
+  const handleChangeNat = (nat: string) => {
     setFilterValues({ ...filterValues, nat });
   };
 
