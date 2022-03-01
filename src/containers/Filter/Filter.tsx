@@ -28,8 +28,15 @@ const Filter: React.FC<FilterProps> = ({
 }) => {
   const { trans } = useLocales();
 
-  const handleChangeGender = (event: React.MouseEvent<HTMLButtonElement>) => {
-    onChangeGender(event.currentTarget.value);
+  const handleChangeGender = (
+    e: React.MouseEvent<HTMLElement>,
+    newGender: string | null
+  ) => {
+    if (newGender !== null) {
+      onChangeGender(newGender);
+    }
+
+    localStorage.setItem("gender", newGender!);
   };
 
   const handleChangePage = (e: React.ChangeEvent<unknown>, value: number) => {
@@ -39,6 +46,8 @@ const Filter: React.FC<FilterProps> = ({
   const handleChangeResults = (e: SelectChangeEvent<number>) => {
     const value = e.target.value;
     onChangeResults(Number(value));
+
+    localStorage.setItem("results", JSON.stringify(value));
   };
 
   const handleChangeNat = (e: SelectChangeEvent) => {
@@ -49,17 +58,22 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   return (
-    <Stack direction="row" justifyContent="space-between" p={2}>
+    <Stack direction="row" spacing={8} p={3}>
       <div>
         <Typography>
           {trans.gender} :
           {filterValues.gender === "male" ? trans.male : trans.female}
         </Typography>
-        <ToggleButtonGroup value={filterValues.gender}>
-          <ToggleButton value="male" onClick={handleChangeGender}>
+        <ToggleButtonGroup
+          value={trans.gender}
+          exclusive
+          onChange={handleChangeGender}
+          aria-label="text alignment"
+        >
+          <ToggleButton value="male">
             <MaleIcon />
           </ToggleButton>
-          <ToggleButton value="female" onClick={handleChangeGender}>
+          <ToggleButton value="female">
             <FemaleIcon />
           </ToggleButton>
         </ToggleButtonGroup>

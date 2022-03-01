@@ -20,7 +20,7 @@ const SwitchButton: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Paper elevation={0}>
+    <Paper elevation={4}>
       <Container
         sx={{ display: "flex", justifyContent: "flex-end", gap: "35px" }}
       >
