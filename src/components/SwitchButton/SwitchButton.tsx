@@ -26,19 +26,14 @@ const SwitchButton: React.FC = () => {
       >
         <FormControl>
           <FormLabel color="primary">{trans.lang}</FormLabel>
-          <RadioGroup row onChange={toggleLang}>
-            <FormControlLabel
-              checked={true}
-              value="en"
-              control={<Radio />}
-              label="EN"
-            />
-            <FormControlLabel
-              checked={false}
-              value="ru"
-              control={<Radio />}
-              label="RU"
-            />
+          <RadioGroup
+            aria-labelledby="demo-controlled-radio-buttons-group"
+            row
+            onChange={toggleLang}
+            value={localStorage.getItem("langs")}
+          >
+            <FormControlLabel value="en" control={<Radio />} label="EN" />
+            <FormControlLabel value="ru" control={<Radio />} label="RU" />
           </RadioGroup>
         </FormControl>
         <FormControl>

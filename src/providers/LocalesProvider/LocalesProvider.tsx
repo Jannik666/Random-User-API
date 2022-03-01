@@ -14,7 +14,9 @@ const LocalesContext = createContext<LocalesType>({ ...langs });
 export const useLocales = () => useContext(LocalesContext);
 
 const LocalesProvider: React.FC = ({ children }) => {
-  const [lang, setLang] = useState<string>(localStorage.getItem(langs) || "en");
+  const [lang, setLang] = useState<string>(
+    localStorage.getItem("langs") || "en"
+  );
 
   const toggleLang = useCallback(() => {
     setLang((prev) => (prev === "en" ? "ru" : "en"));
