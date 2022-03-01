@@ -48,7 +48,7 @@ const ThemeProvider: React.FC = ({ children }) => {
       <GlobalStyles
         styles={{
           body: {
-            backgroundColor: theme === "light" ? "#fff" : "#000",
+            backgroundColor: theme === "light" ? "#fff" : "#121212",
           },
         }}
       />

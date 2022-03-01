@@ -28,11 +28,8 @@ const Filter: React.FC<FilterProps> = ({
 }) => {
   const { trans } = useLocales();
 
-  const handleChangeGender = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const value = e.currentTarget.value;
-    onChangeGender(value);
-
-    localStorage.setItem("genger", value);
+  const handleChangeGender = (event: React.MouseEvent<HTMLButtonElement>) => {
+    onChangeGender(event.currentTarget.value);
   };
 
   const handleChangePage = (e: React.ChangeEvent<unknown>, value: number) => {

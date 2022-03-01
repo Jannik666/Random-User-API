@@ -3,7 +3,7 @@ import React, { createContext, useState, useCallback, useContext } from "react";
 import { langs } from "./translations";
 import { LocalesType } from "./LocalesProvider.types";
 
-const LocalesContext = createContext<LocalesType>({});
+const LocalesContext = createContext<LocalesType>({ ...langs });
 
 export const useLocales = () => useContext(LocalesContext);
 

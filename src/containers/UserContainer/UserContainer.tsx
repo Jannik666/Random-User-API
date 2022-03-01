@@ -8,7 +8,7 @@ import SwitchButton from "../../components/SwitchButton";
 
 const UserContainer: React.FC = () => {
   const [filterValues, setFilterValues] = useState({
-    gender: localStorage.getItem("gender") || "male",
+    gender: "male",
     page: 1,
     results: 8,
     nat: localStorage.getItem("nat") || "AU",

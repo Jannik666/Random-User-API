@@ -30,4 +30,4 @@ const ru = {
   lightTheme: "Светлая Тема",
 };
 
-export const langs: string | string = [ru, en];
+export const langs: any = { ru, en };
