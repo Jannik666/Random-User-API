@@ -15,7 +15,7 @@ const UserForm: React.FC<UserFormProps> = ({
   const { trans } = useLocales();
 
   return (
-    <DialogContent sx={{ padding: 0, width: 250 }}>
+    <DialogContent sx={{ padding: 0, width: 400 }}>
       <Card>
         <CardMedia alt="Avatar" component="img" src={picture.large} />
         <Typography>

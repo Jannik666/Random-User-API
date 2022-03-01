@@ -65,15 +65,19 @@ const Filter: React.FC<FilterProps> = ({
           {filterValues.gender === "male" ? trans.male : trans.female}
         </Typography>
         <ToggleButtonGroup
-          value={trans.gender}
+          value={
+            trans.gender === "male"
+              ? localStorage.getItem("gender")
+              : localStorage.getItem("gender")
+          }
           exclusive
           onChange={handleChangeGender}
           aria-label="text alignment"
         >
-          <ToggleButton value="male">
+          <ToggleButton value="male" color="primary">
             <MaleIcon />
           </ToggleButton>
-          <ToggleButton value="female">
+          <ToggleButton value="female" color="primary">
             <FemaleIcon />
           </ToggleButton>
         </ToggleButtonGroup>

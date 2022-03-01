@@ -49,7 +49,7 @@ const SwitchButton: React.FC = () => {
             control={<MaterialUISwitch sx={{ m: 1 }} />}
             label={
               <Typography>
-                {theme === "ligth" ? trans.lightTheme : trans.darkTheme}
+                {theme === "dark" ? trans.darkTheme : trans.lightTheme}
               </Typography>
             }
           />
