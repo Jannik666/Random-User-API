@@ -31,7 +31,7 @@ const UserContainer = () => {
   };
 
   return (
-    <Paper elevation={3} variant="outlined">
+    <Paper elevation={1}>
       <SwitchButton />
       <Container>
         <Filter
