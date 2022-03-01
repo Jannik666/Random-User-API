@@ -33,7 +33,7 @@ main
 │  │   ├── SwitchButton
 │  │   │    ├── index.js
 │  │   │    ├── MaterialUISwitch.js
-│  │   │    └── SwitchButton
+│  │   │    └── SwitchButton.js
 │  │   ├── User
 │  │   │    ├── index.js
 │  │   │    └── User.js
@@ -62,9 +62,9 @@ main
 │  ├── App.js
 │  ├── index.css
 │  └── index.js
-└── .gitignore
-└── package.json
-└── README.md
+├── .gitignore
+├── package.json
+├── README.md
 └── yarn.lock
 
 ```
