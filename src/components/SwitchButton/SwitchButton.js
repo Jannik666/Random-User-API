@@ -26,7 +26,11 @@ const SwitchButton = () => {
       >
         <FormControl>
           <FormLabel color="primary">{trans.lang}</FormLabel>
-          <RadioGroup row onChange={toggleLang} value={trans.lang}>
+          <RadioGroup
+            row
+            onChange={toggleLang}
+            value={localStorage.getItem("langs")}
+          >
             <FormControlLabel
               checked={localStorage.getItem("lang") === "ru"}
               value="en"
