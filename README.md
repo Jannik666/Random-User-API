@@ -11,7 +11,7 @@
 - Открытие модального окна с детальной информации по отдельному пользователю
 - Темная и светлая тема
 
-В ветке [main](https://github.com/Jannik666/Random-User-API/tree/main) проект реализован на JavaScript.
+В ветке [Random_User-JavaScript](https://github.com/Jannik666/Random-User-API) проект реализован на JavaScript.
 
 ---
 
