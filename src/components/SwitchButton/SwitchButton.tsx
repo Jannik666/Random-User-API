@@ -6,14 +6,17 @@ import {
   FormControl,
   FormLabel,
   FormControlLabel,
-  Radio,
-  RadioGroup,
   Typography,
+  Box,
+  Select,
+  InputLabel,
+  MenuItem,
 } from "@mui/material";
 
 import { useLocales } from "../../providers/LocalesProvider";
 import { useTheme } from "../../providers/ThemeProvider";
 import { MaterialUISwitch } from "./MaterialUISwitch";
+import { langs } from "providers/LocalesProvider/translations";
 
 const SwitchButton: React.FC = () => {
   const { trans, toggleLang } = useLocales();
@@ -22,20 +25,28 @@ const SwitchButton: React.FC = () => {
   return (
     <Paper elevation={4}>
       <Container
-        sx={{ display: "flex", justifyContent: "flex-end", gap: "35px" }}
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+          gap: "35px",
+          padding: "15px",
+        }}
       >
-        <FormControl>
-          <FormLabel color="primary">{trans.lang}</FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-controlled-radio-buttons-group"
-            row
-            onChange={toggleLang}
-            value={localStorage.getItem("langs")}
-          >
-            <FormControlLabel value="en" control={<Radio />} label="EN" />
-            <FormControlLabel value="ru" control={<Radio />} label="RU" />
-          </RadioGroup>
-        </FormControl>
+        <Box sx={{ minWidth: 200 }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">{trans.lang}</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={langs.lang}
+              label="languageChange"
+              onChange={toggleLang}
+            >
+              <MenuItem value="ru">{trans.ru}</MenuItem>
+              <MenuItem value="en">{trans.en}</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
         <FormControl>
           <FormLabel color="primary">{trans.changeTheme}</FormLabel>
           <FormControlLabel

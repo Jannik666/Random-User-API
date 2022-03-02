@@ -15,12 +15,12 @@ export const useLocales = () => useContext(LocalesContext);
 
 const LocalesProvider: React.FC = ({ children }) => {
   const [lang, setLang] = useState<string>(
-    localStorage.getItem("langs") || "en"
+    localStorage.getItem("langs") || "ru"
   );
 
   const toggleLang = useCallback(() => {
     setLang((prev) => (prev === "en" ? "ru" : "en"));
-  }, [setLang]);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("langs", lang);

@@ -10,6 +10,8 @@ export interface LocalesType {
     email: string;
     location: string;
     lang: string;
+    ru: string;
+    en: string;
     changeTheme: string;
     darkTheme: string;
     lightTheme: string;

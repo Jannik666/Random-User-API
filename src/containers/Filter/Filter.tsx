@@ -58,7 +58,7 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   return (
-    <Stack direction="row" spacing={8} p={3}>
+    <Stack direction="row" justifyContent="space-between" spacing={6} p={3}>
       <div>
         <Typography>
           {trans.gender} :
@@ -96,7 +96,7 @@ const Filter: React.FC<FilterProps> = ({
         <InputLabel id="results">{trans.results}</InputLabel>
         <Select
           id="results"
-          label="Results"
+          label={trans.results}
           name="Results"
           value={filterValues.results}
           onChange={handleChangeResults}
@@ -108,11 +108,11 @@ const Filter: React.FC<FilterProps> = ({
           ))}
         </Select>
       </FormControl>
-      <FormControl sx={{ width: 0.2 }}>
+      <FormControl sx={{ width: 0.22 }}>
         <InputLabel id="nat">{trans.nationality}</InputLabel>
         <Select
           id="nat"
-          label="Nat"
+          label={trans.nationality}
           name="Nat"
           value={filterValues.nat}
           onChange={handleChangeNat}
