@@ -20,7 +20,7 @@ const SwitchButton = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Paper elevation={0}>
+    <Paper elevation={4}>
       <Container
         sx={{ display: "flex", justifyContent: "flex-end", gap: "35px" }}
       >
@@ -31,18 +31,8 @@ const SwitchButton = () => {
             onChange={toggleLang}
             value={localStorage.getItem("langs")}
           >
-            <FormControlLabel
-              checked={localStorage.getItem("lang") === "ru"}
-              value="en"
-              control={<Radio />}
-              label="EN"
-            />
-            <FormControlLabel
-              checked={localStorage.getItem("lang") === "en"}
-              value="ru"
-              control={<Radio />}
-              label="RU"
-            />
+            <FormControlLabel value="en" control={<Radio />} label="EN" />
+            <FormControlLabel value="ru" control={<Radio />} label="RU" />
           </RadioGroup>
         </FormControl>
         <FormControl>
@@ -53,7 +43,7 @@ const SwitchButton = () => {
             control={<MaterialUISwitch sx={{ m: 1 }} />}
             label={
               <Typography>
-                {theme === "ligth" ? trans.ligthTheme : trans.darkTheme}
+                {theme === "dark" ? trans.darkTheme : trans.lightTheme}
               </Typography>
             }
           />

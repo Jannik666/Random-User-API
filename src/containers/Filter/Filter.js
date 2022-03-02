@@ -26,11 +26,10 @@ const Filter = ({
 }) => {
   const { trans } = useLocales();
 
-  const handleChangeGender = (e) => {
-    const value = e.currentTarget.value;
-    onChangeGender(value);
+  const handleChangeGender = (e, newGender) => {
+    if (newGender !== null) onChangeGender(newGender);
 
-    localStorage.setItem("genger", value);
+    localStorage.setItem("genger", newGender);
   };
 
   const handleChangePage = (e, value) => {
@@ -48,27 +47,27 @@ const Filter = ({
     const value = e.target.value;
     onChangeNat(value);
 
-    localStorage.setItem("nat", value);
+    localStorage.setItem("nat", JSON.stringify(value));
   };
 
   return (
-    <Stack direction="row" justifyContent="space-between" p={2}>
+    <Stack direction="row" spacing={8} p={2}>
       <div>
         <Typography>
-          {trans.gender} :
+          {trans.gender} :{" "}
           {filterValues.gender === "male" ? trans.male : trans.female}
         </Typography>
         <ToggleButtonGroup value={filterValues.gender}>
           <ToggleButton
             value="male"
-            variant="contained"
+            color="primary"
             onClick={handleChangeGender}
           >
             <MaleIcon />
           </ToggleButton>
           <ToggleButton
             value="female"
-            variant="contained"
+            color="primary"
             onClick={handleChangeGender}
           >
             <FemaleIcon />
@@ -77,7 +76,7 @@ const Filter = ({
       </div>
       <Stack>
         <Typography>
-          {trans.page}: {filterValues.page}
+          {trans.page} : {filterValues.page}
         </Typography>
         <Pagination
           count={50}
