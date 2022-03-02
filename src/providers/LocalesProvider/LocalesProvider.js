@@ -13,7 +13,7 @@ const LocalesContext = createContext({});
 export const useLocales = () => useContext(LocalesContext);
 
 const LocalesProvider = ({ children }) => {
-  const [lang, setLang] = useState(localStorage.getItem("langs"));
+  const [lang, setLang] = useState(localStorage.getItem("langs") || "ru");
 
   const toggleLang = useCallback(() => {
     setLang((prev) => (prev === "en" ? "ru" : "en"));
