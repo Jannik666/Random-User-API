@@ -11,7 +11,7 @@
 - Открытие модального окна с детальной информации по отдельному пользователю
 - Темная и светлая тема
 
-В ветке [TypeScript](https://github.com/Jannik666/Random-User-API/tree/TypeScript) проект реализован на TypeScript.
+В ветке [Random_User-TypeScript](https://github.com/Jannik666/Random-User-API/tree/Random_User-TypeScript) проект реализован на TypeScript.
 
 ---
 
