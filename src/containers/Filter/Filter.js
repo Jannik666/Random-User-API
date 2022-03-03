@@ -29,7 +29,7 @@ const Filter = ({
   const handleChangeGender = (e, newGender) => {
     if (newGender !== null) onChangeGender(newGender);
 
-    localStorage.setItem("genger", newGender);
+    localStorage.setItem("gender", newGender);
   };
 
   const handleChangePage = (e, value) => {
@@ -104,7 +104,7 @@ const Filter = ({
         <InputLabel id="nat">{trans.nationality}</InputLabel>
         <Select
           id="nat"
-          label="Nat"
+          label={trans.nationality}
           name="Nat"
           value={filterValues.nat}
           onChange={handleChangeNat}

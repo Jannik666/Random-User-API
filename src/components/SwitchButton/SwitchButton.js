@@ -38,12 +38,17 @@ const SwitchButton = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
+              defaultValue={
+                localStorage.getItem("langs") === "en" ? "ru" : "en"
+              }
               value={langs.lang}
               label="languageChange"
               onChange={toggleLang}
             >
               <MenuItem value="ru">{trans.ru}</MenuItem>
-              <MenuItem value="en">{trans.en}</MenuItem>
+              <MenuItem value="en" autoFocus={true}>
+                {trans.en}
+              </MenuItem>
             </Select>
           </FormControl>
         </Box>
