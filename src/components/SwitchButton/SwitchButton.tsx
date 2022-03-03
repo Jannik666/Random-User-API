@@ -38,6 +38,9 @@ const SwitchButton: React.FC = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
+              defaultValue={
+                localStorage.getItem("langs") === "en" ? "ru" : "en"
+              }
               value={langs.lang}
               label="languageChange"
               onChange={toggleLang}
