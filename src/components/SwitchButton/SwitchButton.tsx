@@ -42,7 +42,7 @@ const SwitchButton: React.FC = () => {
                 localStorage.getItem("langs") === "en" ? "ru" : "en"
               }
               value={langs.lang}
-              label="languageChange"
+              label={trans.lang}
               onChange={toggleLang}
             >
               <MenuItem value="ru">{trans.ru}</MenuItem>
