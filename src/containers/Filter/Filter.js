@@ -47,7 +47,7 @@ const Filter = ({
     const value = e.target.value;
     onChangeNat(value);
 
-    localStorage.setItem("nat", JSON.stringify(value));
+    localStorage.setItem("nat", value);
   };
 
   return (
@@ -88,7 +88,7 @@ const Filter = ({
         <InputLabel id="results">{trans.results}</InputLabel>
         <Select
           id="results"
-          label="Results"
+          label={trans.results}
           name="Results"
           value={filterValues.results}
           onChange={handleChangeResults}
